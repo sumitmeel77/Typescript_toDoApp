@@ -1,0 +1,25 @@
+// let name: string = "sumit";
+// let item: number = 4;
+// let array: string[]; // array of only strings
+// let role: [number, string]  // tuple
+
+// type Person = {
+//     name: string,
+//     age: number,
+//     height?: 3
+// }
+// let person: Person = {
+//     name: "sumit",
+//     age: 4
+
+// }
+// let persons: Person[]
+
+// let something: string | number; /// union
+
+// let printvoid: (name: string) => void | string | number// type for function
+
+// let nomm: any;
+
+// // void return undefined where as never returns nothing
+

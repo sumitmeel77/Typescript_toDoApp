@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+import "./App.css";
+import InputField from './components/inputField';
+import { Todo } from './components/model';
+import TodoList from './components/TodoList';
 
 function App() {
+  const [Todo, setTodo] = useState<string>("")
+  const [state, setState] = useState<Todo[]>([])  // imported interfece Todo from model
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (Todo) {
+      setState([...state, { id: Date.now(), todo: Todo, isDone: false }])
+      setTodo("")
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="container">
+        <div className='heading'>TASK  APP </div>
+        <InputField Todo={Todo} setTodo={setTodo} handleAdd={handleAdd} />
+        <TodoList state={state} setState={setState} />
+      </div>
+    </>
   );
+
 }
 
 export default App;
